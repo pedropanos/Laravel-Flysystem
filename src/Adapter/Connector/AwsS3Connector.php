@@ -135,10 +135,12 @@ final class AwsS3Connector implements ConnectorInterface
      * @param \Aws\S3\S3Client $client
      * @param string[]         $config
      *
-     * @return \League\Flysystem\AwsS3v3\AwsS3Adapter
+     * OLD !! return \League\Flysystem\AwsS3v3\AwsS3Adapter
+     * @return \League\Flysystem\AwsS3V3\AwsS3V3Adapter
      */
     private static function getAdapter(S3Client $client, array $config)
     {
-        return new AwsS3Adapter($client, $config['bucket'], $config['prefix']);
+        //return new AwsS3Adapter($client, $config['bucket'], $config['prefix']);
+        return new \League\Flysystem\AwsS3V3\AwsS3V3Adapter($client, $config['bucket'], (string)$config['prefix']);
     }
 }
